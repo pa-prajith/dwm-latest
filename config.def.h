@@ -80,7 +80,7 @@ static Key keys[] = {
 	{ MODKEY,             			XK_w,      spawn,      	   SHCMD("brave") },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
 	{ ALTKEY,             			XK_w,      spawn,      	   SHCMD("feh --randomize --bg-scale ~/.wallpapers") },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ ALTKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
