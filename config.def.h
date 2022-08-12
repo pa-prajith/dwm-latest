@@ -12,17 +12,20 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=12", "Hack Nerd Font:size=12" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=12";
-static const char col_gray1[]       = "#1a1b26";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#7aa2f7";
-static const char col_gray4[]       = "#24283b";
-static const char col_cyan[]        = "#bb9af7";
+static const char norm_fg[] = "#9dd9d2";
+static const char norm_bg[] = "#0f1016";
+static const char norm_border[] = "#6d9793";
+
+static const char sel_fg[] = "#9dd9d2";
+static const char sel_bg[] = "#D56C84";
+static const char sel_border[] = "#9dd9d2";
+static const char dsel_bg[] = "#9A7788";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray4 },
-	[SchemeSel]  = { "#0f0f14", "#7aa2f7",  col_cyan  },
+	[SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins
+    [SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -31,7 +34,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5" };
+static const char *tags[] = { "", "", "", "", "" , ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -70,7 +73,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", sel_fg, "-sb", dsel_bg, "-sf", sel_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
