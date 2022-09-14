@@ -15,6 +15,7 @@ static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=12";
 static const char norm_fg[] = "#9dd9d2";
 static const char norm_bg[] = "#0f1016";
 static const char norm_border[] = "#6d9793";
+static const char unsel_border[] = "#282c34";
 
 static const char sel_fg[] = "#9dd9d2";
 static const char sel_bg[] = "#D56C84";
@@ -24,7 +25,7 @@ static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins
+	[SchemeNorm] = { norm_fg,     norm_bg,   unsel_border }, // unfocused wins
     [SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win
 };
 static const unsigned int alphas[][3]      = {
@@ -34,7 +35,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "" , ""};
+static const char *tags[] = { "", "", "", "", "" , ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
