@@ -12,15 +12,15 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=12", "Hack Nerd Font:size=12" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=12";
-static const char norm_fg[] = "#9dd9d2";
-static const char norm_bg[] = "#0f1016";
-static const char norm_border[] = "#6d9793";
-static const char unsel_border[] = "#282c34";
+static const char norm_fg[] = "#7aa2f7";
+static const char norm_bg[] = "#1a1b26";
+static const char norm_border[] = "#1a1b26";
+static const char unsel_border[] = "#565f89";
 
-static const char sel_fg[] = "#9dd9d2";
-static const char sel_bg[] = "#D56C84";
-static const char sel_border[] = "#9dd9d2";
-static const char dsel_bg[] = "#9A7788";
+static const char sel_fg[] = "#24283b";
+static const char sel_bg[] = "#bb9af7";
+static const char sel_border[] = "#7aa2f7";
+static const char dsel_bg[] = "#e0af68";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
