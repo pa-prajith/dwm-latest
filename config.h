@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -10,17 +10,17 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=12", "Hack Nerd Font:size=12" };
+static const char *fonts[]          = { "JetBrainsMono Nerd Font Mono:size=12", "Hack Bold Nerd Font:size=12" };
 static const char dmenufont[]       = "JetBrainsMono Nerd Font Mono:size=12";
-static const char norm_fg[] = "#7aa2f7";
-static const char norm_bg[] = "#1a1b26";
-static const char norm_border[] = "#1a1b26";
-static const char unsel_border[] = "#565f89";
+static const char norm_fg[] = "#bebda1";
+static const char norm_bg[] = "#10141d";
+static const char norm_border[] = "#10141d";
+static const char unsel_border[] = "#10141d";
 
-static const char sel_fg[] = "#24283b";
-static const char sel_bg[] = "#bb9af7";
-static const char sel_border[] = "#7aa2f7";
-static const char dsel_bg[] = "#e0af68";
+static const char sel_fg[] = "#10141d";
+static const char sel_bg[] = "#ffbb00";
+static const char sel_border[] = "#bebda1";
+static const char dsel_bg[] = "#10141d";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -35,7 +35,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = {"", "", "", "", "", ""};
+// static const char *tags[] = {"", "", "", "", "", ""};
+static const char *tags[] = {"", "", "", "", "", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -74,7 +75,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", sel_fg, "-sb", dsel_bg, "-sf", sel_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", norm_bg, "-nf", sel_bg, "-sb", norm_bg, "-sf", norm_fg, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
@@ -94,7 +95,7 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,			    XK_x, 	   spawn,          SHCMD("systemctl poweroff") },
 	{ MODKEY|ALTKEY,      			XK_r, 	   spawn,          SHCMD("systemctl reboot") },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
-	{ ALTKEY,             			XK_w,      spawn,      	   SHCMD("feh --randomize --bg-scale ~/.wallpapers") },
+	{ ALTKEY,             			XK_w,      spawn,      	   SHCMD("feh --randomize --bg-scale ~/.wallpapers/widescreen") },
 	{ ALTKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -134,9 +135,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
-	{ MODKEY,                       XK_F10,    spawn,          SHCMD("amixer set Master toggle") },
-	{ MODKEY,                       XK_F11,    spawn,          SHCMD("amixer set Master 5%-") },
-	{ MODKEY,                       XK_F12,    spawn,          SHCMD("amixer set Master 5%+") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("amixer set Master toggle") },
+	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("amixer set Master 5%-") },
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("amixer set Master 5%+") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
